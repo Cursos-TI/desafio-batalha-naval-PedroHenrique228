@@ -3,6 +3,8 @@
 int main() {
     //criando a matriz do tabuleiro
     int tabuleiro[10][10];
+    int linha, coluna;
+
     
 
     //inicializando tabuleiro
@@ -12,15 +14,26 @@ int main() {
         }
     }
 
-    //Posisionando navios
-    tabuleiro[5][4] = 3;
-    tabuleiro[5][5] = 3;
-    tabuleiro[5][6] = 3;
+    //Posisionando navio horizontal
+    linha = 4;
+    coluna = 7;
+    if(linha <= 9 && coluna <= 7){
+        for(int i = 0; i < 3; i++){
+            tabuleiro[linha][coluna + i] = 3;
+        }
+    }
 
-    tabuleiro[2][8] = 3;
-    tabuleiro[3][8] = 3;
-    tabuleiro[4][8] = 3;
+    //Posisionando navio vertical
+    linha = 2;
+    coluna = 5;
+    if(linha <= 7 && coluna <= 9 && tabuleiro[linha][coluna] == 0 && tabuleiro[linha+1][coluna] == 0 && tabuleiro[linha+2][coluna] == 0){
+        for(int i = 0; i < 3; i++){
+            tabuleiro[linha + i][coluna] = 3;
+        }
+    }
     
+    
+
 
     //printando o tabuleiro
     printf("   A B C D E F G H I J\n");
